@@ -6,9 +6,11 @@
 
 int main()
 {
-
+    //pop-up text box
     if (IDYES == MessageBox(GetConsoleWindow(), L"ARE YOU SURE YOU WANT TO DISAPOINT GODDESS?", L"WHY DO YOU FORSAKE ME?", MB_YESNO | MB_ICONWARNING | MB_SYSTEMMODAL | MB_SETFOREGROUND)) {
+        //deletes the value of nochangingwallpaper instead of the key in case there is more than one value in the key
         system("reg delete HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\ActiveDesktop /v NoChangingWallPaper /f");
+        //sets the wallpaper to color
         SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, (PVOID)TEXT("SOME INVALID SHIT"), SPIF_UPDATEINIFILE);
     }
 
