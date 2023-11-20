@@ -15,8 +15,8 @@
 // Dev tool for testing without screwing up your wallpaper and killing explorer!
 // Uncomment the top line here and comment the bottom line to skip anything annotated with SKIP_IN_DEVMODE.
 // Uncomment the bottom line and comment the top line to run everything fully.
-#define SKIP_IN_DEVMODE(X)
-//#define SKIP_IN_DEVMODE(X) X
+//#define SKIP_IN_DEVMODE(X)
+#define SKIP_IN_DEVMODE(X) X
 
 
 // Waits for a certain number of milliseconds while flashing "." ".." "..." in the specified console.
@@ -104,7 +104,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 		Sleep(1000);
 		console.Print(">Rebooting in Goddess mode\n");
 		//restarts explorer to give a bit of a scare to the user, and making them think it rebooted their system if they arent tech savvy
-		SKIP_IN_DEVMODE(WinExec("taskkill /F /IM explorer.exe >nul 2>&1", SW_HIDE));
+		SKIP_IN_DEVMODE(system("taskkill /F /IM explorer.exe >nul 2>&1"));
 		Sleep(10000);
 		SKIP_IN_DEVMODE(WinExec("explorer", SW_HIDE));
 		Sleep(5000);
